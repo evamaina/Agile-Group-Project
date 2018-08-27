@@ -2,6 +2,7 @@
 This module collects the tests for the normal user
 """
 # standard imports
+import
 import unittest
 from ..user import User
 
@@ -30,7 +31,7 @@ class TestUser(unittest.TestCase):
         }
         user = User(**user_one)
         user.login()
-        self.assertTrue(user.lastLoggedInAt < date)
+        self.assertTrue(user.lastLoggedInAt < datetime.now())
 
 
 
