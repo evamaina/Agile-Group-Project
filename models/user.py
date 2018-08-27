@@ -9,6 +9,7 @@ class User(object):
         self.username = username
         self.password = password
         self.comments = []
+        self.role = 'user'
         self.online = False
         self.lastLoggedInAt = None
 
