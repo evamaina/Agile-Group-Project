@@ -1,5 +1,6 @@
 from datetime import datetime
 from tests.test_user import *
+from models.moderator import *
 
 
 class User(object):
@@ -46,6 +47,7 @@ class User(object):
         self.lastLoggedInAt = datetime.now()
         self.online = True
         return "User has logged in successfully"
+
 
         
         
