@@ -1,2 +1,3 @@
 agile_env/
 .vscode/
+.pytest_cache/v/cache/

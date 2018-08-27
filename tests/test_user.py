@@ -45,14 +45,14 @@ class TestUser(unittest.TestCase):
         }
         new_user = User(**params)
         new_user.login()
-        self.assertTrue(new_user.lastLoggedInAt < datetime.now())
+        self.assertTrue(new_user.lastLoggedInAt <= datetime.now())
         self.assertEqual(new_user.logout(), 'Logged out')
         self.assertFalse(new_user.online)
         
 
     def test_user_log_in(self):
         """
-        Test that a user can log
+        Test that a user can log in
         """   
         user_one = {
             "username":"salimia",
@@ -60,7 +60,7 @@ class TestUser(unittest.TestCase):
         }
         user = User(**user_one)
         user.login()
-        self.assertTrue(user.lastLoggedInAt < datetime.now())
+        self.assertTrue(user.lastLoggedInAt <= datetime.now())
 
 
 
