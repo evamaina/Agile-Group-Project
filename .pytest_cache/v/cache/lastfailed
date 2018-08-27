@@ -1,5 +1,5 @@
 {
   "tests/test_comment.py": true,
   "tests/test_user.py": true,
-  "tests/test_user.py::TestUser": true
+  "tests/test_user.py::TestUser::test_edit_comment": true
 }

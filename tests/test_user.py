@@ -67,7 +67,14 @@ class TestUser(unittest.TestCase):
         user = User(**user_one)
         user.login()
         self.assertTrue(user.lastLoggedInAt <= datetime.now())
+    
+    def test_edit_comment(self):
+        params = {
+            'username':'testuser',
+            'password':'password'
+        }
 
+<<<<<<< HEAD
     def test_user_can_edit_comment(self):
         """Test that a user can edit their comments"""
         user = self.user
@@ -79,5 +86,12 @@ class TestUser(unittest.TestCase):
 
 
 
+=======
+        new_user = User(**params)
+        comments = "comments"
+        self.assertEqual(new_user.edit_comment(comments)['comment'], comments)
+        
+        
+>>>>>>> a482e209f2457ede4ad0d3d60738b9a3fb75893b
 
 

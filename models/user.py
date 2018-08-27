@@ -1,5 +1,6 @@
 from datetime import datetime
 from tests.test_user import *
+from models.moderator import *
 
 
 class User(object):
@@ -47,6 +48,7 @@ class User(object):
         self.online = True
         return "User has logged in successfully"
 
+<<<<<<< HEAD
     def edit_comment(self, comment_id, text):
         """edit a comment made by a user"""
         comment_to_edit = {}
@@ -67,5 +69,9 @@ class User(object):
         return resp
 
 
+=======
+
+        
+>>>>>>> a482e209f2457ede4ad0d3d60738b9a3fb75893b
         
 
