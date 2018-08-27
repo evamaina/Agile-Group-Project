@@ -19,3 +19,16 @@ class TestUser(unittest.TestCase):
         self.assertEqual(new_user.password, params['password'])
         # check that the new user does not have any comments
         self.assertEqual(0, len(new_user.comments))
+
+    def test_user_log_in(self):
+        """
+        Test that a user can log
+        """
+        user = User()
+        
+        user_one = {
+            "username":"salimia",
+            "password":"salam123"
+        }
+
+
