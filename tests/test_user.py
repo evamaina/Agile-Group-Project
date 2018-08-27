@@ -28,8 +28,9 @@ class TestUser(unittest.TestCase):
             'password':'password'
         }
         new_user = User(**params)
+        new_user.login()
         self.assertTrue(new_user.lastLoggedInAt < datetime.now())
-        self.assertEqual(new_user.logout(), 'logged out')
+        self.assertEqual(new_user.logout(), 'Logged out')
         self.assertFalse(new_user.online)
         
 
