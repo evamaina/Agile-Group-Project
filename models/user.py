@@ -8,6 +8,7 @@ class User(object):
 		self.username = username
 		self.password = password
 		self.comments = []
+		self.online = False
 
 	def create_user(self, username, password):
 		self.users.append(User(username, password))
@@ -25,3 +26,13 @@ class User(object):
         }
         User.comments.append(new_comment)
         return new_comment
+
+		
+
+	def logout(self):
+		"""logout a logged in user"""
+		self.online = False
+		return "Logged out"
+
+		
+
