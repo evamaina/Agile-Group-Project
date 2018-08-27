@@ -43,7 +43,7 @@ class TestUser(unittest.TestCase):
         }
         user = User(**user_one)
         user.login()
-        self.assertTrue(user.lastLoggedInAt < date)
+        self.assertTrue(user.lastLoggedInAt < datetime.now())
 
 
 
