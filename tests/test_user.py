@@ -19,4 +19,17 @@ class TestUser(unittest.TestCase):
         self.assertEqual(new_user.password, params['password'])
         # check that the new user does not have any comments
         self.assertEqual(0, len(new_user.comments))
+
+    def test_user_can_create_comment(self):
+        """Test that a user can comment"""
+        params = {
+            'username':'testuser',
+            'password':'password'
+        }
+
         
+        new_user = User(**params)
+        comments = "comments"
+        self.assertEqual(new_user.create_comment(comments)['comment'], comments)
+        
+        self.assertEqual(1, len(new_user.comments))
