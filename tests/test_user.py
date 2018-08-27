@@ -9,6 +9,14 @@ from models.user import User
 class TestUser(unittest.TestCase):
     """This class collects the test for the regular user"""
 
+    def setUp(self):
+        """set up the common variables"""
+        params = {
+            'username':'globaluser',
+            'password':'password'
+        }
+        self.user = User(**params)
+
     def test_user_can_be_created(self):
         """Test that a user can be created"""
         params = {
@@ -21,7 +29,6 @@ class TestUser(unittest.TestCase):
         # check that the new user does not have any comments
         self.assertEqual(0, len(new_user.comments))
 
-
     def test_user_can_create_comment(self):
         """Test that a user can comment"""
         params = {
@@ -29,7 +36,6 @@ class TestUser(unittest.TestCase):
             'password':'password'
         }
 
-        
         new_user = User(**params)
         comments = "comments"
         self.assertEqual(new_user.create_comment(comments)['comment'], comments)
@@ -61,6 +67,17 @@ class TestUser(unittest.TestCase):
         user = User(**user_one)
         user.login()
         self.assertTrue(user.lastLoggedInAt <= datetime.now())
+
+    def test_user_can_edit_comment(self):
+        """Test that a user can edit their comments"""
+        user = self.user
+        # create comment
+        comment_id = user.create_comment("A generic comment")['id']
+        resp = user.edit_comment(comment_id, "An edited comment")
+        self.assertEqual(resp['comment_id'], comment_id)
+        self.assertEqual(resp['edited_comment'], "An edited comment")
+
+
 
 
 

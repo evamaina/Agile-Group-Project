@@ -47,6 +47,25 @@ class User(object):
         self.online = True
         return "User has logged in successfully"
 
-        
+    def edit_comment(self, comment_id, text):
+        """edit a comment made by a user"""
+        comment_to_edit = {}
+        index = 0
+        for i, comment in enumerate(self.comments):
+            if comment['id'] == comment_id:
+                comment_to_edit = comment
+                index = i
+        if self.username == comment_to_edit['author']:
+            comment_to_edit['comment'] = text
+    
+        self.comments[index] = comment_to_edit
+
+        resp = {
+            "comment_id":comment_to_edit["id"],
+            "edited_comment":comment_to_edit["comment"]
+        }
+        return resp
+
+
         
 
