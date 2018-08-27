@@ -36,12 +36,14 @@ class TestUser(unittest.TestCase):
     def test_user_log_in(self):
         """
         Test that a user can log
-        """
-        user = User()
-        
+        """   
         user_one = {
             "username":"salimia",
             "password":"salam123"
         }
+        user = User(**user_one)
+        user.login()
+        self.assertTrue(user.lastLoggedInAt < date)
+
 
 
